@@ -20,6 +20,8 @@
 
 # define EPSILON 1e-6
 
+# define BOUNCE 2
+
 # define WORLD_UP (t_vector){0, 1, 0}
 
 # define AXIS_X 1
@@ -29,7 +31,7 @@
 // # define TEST_PLANE (t_vector){4, 4, 4}, (t_vector){0, 0, 1}, (t_color){0, 255, 0, 255}
 # define TEST_BG 0x000000FF
 
-# define WALL_COLOR COLOR_NAVY_BLUE
+# define WALL_COLOR COLOR_WHITE
 # define TEXT_COLOR COLOR_METALLIC_GOLD
 # define LIGHT_COLOR COLOR_WARM_WHITE
 // # define WALL_COLOR COLOR_SKY_BLUE
@@ -114,12 +116,12 @@
 # define TEST_PLANEL (t_vector){-30, 0, 0}, (t_vector){1, 0, 0}, RGBA(WALL_COLOR)
 # define TEST_CYLINDER (t_vector){0, 0, 0}, (t_vector){0.1, 0, 0}, 4, 6, RGBA(COLOR_WHITE)
 # define TEST_SPHERE2 (t_vector){0, 0, 15}, 21, RGBA(TEXT_COLOR)
-# define TEST_SPHERE (t_vector){0, 0, 0}, 12, RGBA(COLOR_METALLIC_GOLD)
+# define TEST_SPHERE (t_vector){28, 0, 11}, 12, RGBA(COLOR_RED)
 # define TEST_CONE (t_vector){0, 0, 0}, (t_vector){1, 1, 0.000000}, 6, 7, RGBA(COLOR_MAGENTA)
 # define TEST_SPHERE4 (t_vector){-4, 2, 5}, 4, RGBA(COLOR_BLACK)
 # define TEST_SPHERE3 (t_vector){0, -2, 5}, 2, RGBA(COLOR_RED)
 //test cam
-# define TEST_CAM_POS (t_vector){-7, 6, -14}
+# define TEST_CAM_POS (t_vector){15, 0, 0}
 # define TEST_CAM_DIR (t_vector){0.25, -0.26, 0.93}
 # define TEST_FOV 80.0
 # define FOV_STEP 10.0
@@ -165,7 +167,7 @@ t_color			get_diffuse(t_hit *hit);
 
 void			fix_hit_normal(t_hit *hit);
 //colors
-t_color			get_pixel_color(t_ray *ray, t_hit *hit);
+t_color			get_pixel_color(t_ray *ray, t_hit *hit, int depth);
 int				color_to_int(t_color c);
 t_color			color_from_int(int r, int g, int b);
 t_color			color_from_hex(unsigned int hex);
@@ -187,7 +189,10 @@ t_rtx			*rtx(void);
 bool			intersect_sphere(t_ray ray, t_shape *sphere, double* t);
 void			key_hook(mlx_key_data_t keydata, void* param);
 bool			intersect(t_shape *shape, t_ray ray, double *t);
-t_color			trace_ray (t_ray *ray);
+t_color			trace_ray (t_ray *ray, int depth);
+
+//lighting
+t_lighting		calc_lighting(t_hit *hit, int depth);
 
 t_ray			generate_ray(int x, int y);
 

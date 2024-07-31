@@ -101,6 +101,7 @@ typedef struct s_shape
 	t_aabb			box;
 	double			height;
 	double			half_height;
+	double			reflectivity;
 	mlx_texture_t	*texture;
 }	t_shape;
 

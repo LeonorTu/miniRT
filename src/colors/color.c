@@ -64,11 +64,11 @@ t_color	add_material(t_hit *hit)
 	return (color);
 }
 
-t_color	get_pixel_color(t_ray *ray, t_hit *hit)
+t_color	get_pixel_color(t_ray *ray, t_hit *hit, int depth)
 {
-	t_color	diffuse;
-	t_color	material_color;
-	t_color	final_color;
+	t_lighting	lighting;
+	t_color		material_color;
+	t_color		final_color;
 	
 	hit->hit_point = vector_add(
 		ray->origin,
@@ -80,9 +80,13 @@ t_color	get_pixel_color(t_ray *ray, t_hit *hit)
 		final_color = hit->shape->color;
 	else
 	{
-		diffuse = get_diffuse(hit);
+		lighting = calc_lighting(hit, depth);
 		material_color = add_material(hit);
-		final_color = color_multiply(diffuse, material_color);
+		lighting.direct = color_multiply(material_color, lighting.direct);
+		lighting.indirect = color_multiply(material_color, lighting.indirect);
+		lighting.ambient = color_multiply(material_color, lighting.ambient);
+		final_color = color_add(lighting.indirect, lighting.direct);
+		final_color = color_add(final_color, lighting.ambient);
 	}
 	return (final_color);
 }

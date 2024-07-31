@@ -1,7 +1,7 @@
 #include <miniRT.h>
 #include <pthread.h>
 
-#define NUM_THREADS 8
+#define NUM_THREADS 12
 #define SSAA 1
 
 typedef struct s_thread_data
@@ -65,7 +65,7 @@ t_color	super_sample(int x, int y)
 		while (i < grid_size)
 		{
 			ray = sub_ray(x, y, j, i, grid_size);
-			pixel_color = color_add(pixel_color, trace_ray(&ray));
+			pixel_color = color_add(pixel_color, trace_ray(&ray, BOUNCE));
 			i++;
 		}
 		j++;
