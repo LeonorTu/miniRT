@@ -50,6 +50,7 @@
 
 # define TEST_CYLINDER1 (t_vector){-25, 0, 0}, (t_vector){0, 1, 0}, 4, 8, RGBA(WALL_COLOR)
 # define TEST_CYLINDER2 (t_vector){25, 0, 0}, (t_vector){-1, 0, 0}, 60, 1, RGBA(WALL_COLOR)
+# define TEST_CYLINDER3 (t_vector){0, 0, -5}, (t_vector){0, 1, 0}, 5, 15, RGBA(WALL_COLOR)
 
 # define TEST_CONE (t_vector){0, 0, 15}, (t_vector){0, 1, 0}, 12, 15, RGBA(COLOR_MAGENTA)
 
@@ -82,7 +83,7 @@
 # define TEST_LIGHT3 (t_vector){10, 10, 0}, RGBA(COLOR_GREEN), 1.0
 
 # define TEST_AMBIENT_COL RGBA(COLOR_WARM_WHITE)
-# define TEST_AMBIENT_INT 0.15
+# define TEST_AMBIENT_INT 1
 
 typedef struct s_scene t_scene;
 typedef struct s_bvh t_bvh;
