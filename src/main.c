@@ -33,7 +33,7 @@ void	render(void)
 	// render_scene();
 }
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
 	init_rtx();
 	render();
