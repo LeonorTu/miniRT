@@ -8,6 +8,7 @@
 # include <float.h>
 # include <colors.h> //colors
 # include <struct.h> //colors
+ #include <fcntl.h> //read file
 
 
 # define VV (t_vector){0, 0, 0} //dummy 0 vector for initializationsõ
