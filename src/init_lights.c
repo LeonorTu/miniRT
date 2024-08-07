@@ -1,6 +1,6 @@
 #include <miniRT.h>
 
-t_light	*make_light(t_vector pos, t_color color, double birght)
+t_light	*make_light(char **element)
 {
 	t_light	*new_light;
 
