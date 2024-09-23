@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 19:26:17 by aklein            #+#    #+#             */
-/*   Updated: 2024/09/23 21:32:20 by aklein           ###   ########.fr       */
+/*   Updated: 2024/09/24 01:08:35 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 # define MAX_FOV 170.0
 
 # define PAN_AMOUNT 7
-# define MOVE_SPEED 3.0
+# define MOVE_SPEED 1.0
 
 # define SHINE_PLANE 60
 # define SHINE_SPHERE 1000
