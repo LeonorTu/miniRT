@@ -30,7 +30,7 @@ MLX_DEBUG		= -DDEBUG=0
 # MANDATORY
 ################################################################################
 NAME			=	miniRT
-INCLUDES		=	./include
+INCLUDES		=	./inc
 M_HEADERS		=	$(INCLUDES)/miniRT.h \
 					$(INCLUDES)/wireframe.h \
 					$(INCLUDES)/structs.h \
